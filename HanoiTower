@@ -1,0 +1,10 @@
+def HanoiTower(n, origin, destination, extra):
+    if n == 1:
+        print("снять кольцо 1 со стержня", origin, "на стержень", destination)
+        return
+    HanoiTower(n - 1, origin, extra, destination)
+    print("снять кольцо", n, "со стержня", origin, "на стержень", destination)
+    HanoiTower(n - 1, extra, destination, origin)
+
+n = 4
+HanoiTower(n, 'A', 'B', 'C')
