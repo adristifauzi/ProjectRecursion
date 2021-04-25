@@ -1,0 +1,26 @@
+def binary_search(data, num, low, high):
+    if high >= low:
+        mid = (high + low) // 2
+        # If element is in the middle itself
+        if data[mid] == num:
+            return mid
+        # If element is smaller than mid, get the left subarray
+        elif data[mid] > num:
+            return binary_search(data, num, low, mid)
+
+        # Else (element bigger than mid), get the right subarray
+        else:
+            return binary_search(data, num, mid, high)
+    else:
+        # the element is not present
+        return -1
+#Test Data
+data = [2, 3, 4, 10, 40]
+num = 10
+
+# Function call
+result = binary_search(data, num, 0, len(data)-1)
+if result != -1:
+    print("Element is present at index", str(result))
+else:
+    print("Element is not present in array")
